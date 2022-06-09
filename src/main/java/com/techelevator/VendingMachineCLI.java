@@ -29,7 +29,9 @@ public class VendingMachineCLI {
 				TheVendingMachine.displayItems();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
-				TheVendingMachine.displayPurchaseMenu();
+				while (true) {
+					TheVendingMachine.displayPurchaseMenu();
+				}
 			}
 		}
 	}

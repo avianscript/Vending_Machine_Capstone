@@ -13,7 +13,7 @@ public class TheVendingMachine extends VendingMachineCLI {
 
     //Instance Variables
     private Map<String, String> allItems;
-    private int balance;
+    public static int balance = 0;
 
 
 
@@ -60,11 +60,29 @@ public class TheVendingMachine extends VendingMachineCLI {
     public static void displayPurchaseMenu() {
 
 
-        System.out.println("Current Balance: " + feedMoney());
+        System.out.println("Current Balance: " + balance);
         System.out.println("(1) Feed Money");
         System.out.println("(2) Select Product");
         System.out.println("(3) Finish Transaction");
         System.out.print("Please Choose An Option: ");
+        String selection = scanner.nextLine();
+        if (selection.equals("1")) {
+            System.out.print("Please insert money: ");
+        String fedMoney = scanner.nextLine();
+            balance += Integer.parseInt(fedMoney);
+            System.out.println(balance);
+        } else if (selection.equals("2")) {
+            displayItems();
+            System.out.println("Please choose a product: ");
+            String productSelection = scanner.nextLine();
+            System.out.println("Here's your product");
+        } else if (selection.equals("3")) {
+            // give change
+            // reset balance
+            System.out.println("Thank you!");
+//            System.exit(0);
+
+        }
 
 //        String userInput = scanner.nextLine();
 //        if (userInput.equals(1)) {
@@ -77,19 +95,19 @@ public class TheVendingMachine extends VendingMachineCLI {
 //    String userInput = scanner.nextLine();
 
 
-      private static int feedMoney() {
+//      private static int feedMoney() {
 
 
 //    Scanner scanner = new Scanner(System.in);
 
 
-        int balance = 0;
-
-
-//        System.out.println("please Insert Money");
-        String userInput = scanner.nextLine();
-        balance += Integer.parseInt(userInput);
-        return balance;
+//        int balance = 0;
+//
+//
+////        System.out.println("please Insert Money");
+//        String userInput = scanner.nextLine();
+//        balance += Integer.parseInt(userInput);
+//        return balance;
     }
 
 
