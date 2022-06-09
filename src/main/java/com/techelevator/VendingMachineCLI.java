@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.Scanner;
 
-public class VendingMachineCLI extends TheVendingMachine {
+public class VendingMachineCLI {
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
@@ -14,16 +14,18 @@ public class VendingMachineCLI extends TheVendingMachine {
 
 	private Menu menu;
 
+
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
 
-	public void run() {
+	public void run() throws FileNotFoundException{
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
+
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 			}
@@ -36,15 +38,15 @@ public class VendingMachineCLI extends TheVendingMachine {
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
-		TheVendingMachine.getItemList();
+
 	}
 
 	public String getUserInput(int selection) throws FileNotFoundException {
 		String userInputMainMenu = input.nextLine();
 
-		if (selection == 1){
+
 			System.out.println("Hello There");
-		}
+
 		return "Somethin else";
 	}
 }

@@ -1,14 +1,26 @@
 package com.techelevator;
 
+import com.techelevator.view.Menu;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class TheVendingMachine {
+public class TheVendingMachine extends VendingMachineCLI {
+    //Instance Variables
+    private Map<String, String> allItems;
+    private int balance;
+
+    //
+
 
     Scanner menuList = new Scanner(System.in);
+
+    public TheVendingMachine(Menu menu) {
+        super(menu);
+    }
 
 
     public static Map getItemList() throws FileNotFoundException {
