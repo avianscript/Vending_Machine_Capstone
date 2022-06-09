@@ -4,6 +4,7 @@ import com.techelevator.view.Menu;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.*;
 
 public class TheVendingMachine extends VendingMachineCLI {
@@ -14,7 +15,7 @@ public class TheVendingMachine extends VendingMachineCLI {
     //Instance Variables
     private Map<String, String> allItems;
     public static int balance = 0;
-
+    
 
 
     public TheVendingMachine(Menu menu, int balance) throws FileNotFoundException {
@@ -45,7 +46,9 @@ public class TheVendingMachine extends VendingMachineCLI {
                 itemList2.add(itemInfo);
                 lineCount++;
 
+
                 System.out.println(Arrays.toString(moreInfo));
+                System.out.println(moreInfo[1]);
             }
 
         } catch (FileNotFoundException exception) {
