@@ -3,6 +3,7 @@ package com.techelevator;
 import com.techelevator.view.Menu;
 
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -25,7 +26,7 @@ public class VendingMachineCLI {
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
-
+				TheVendingMachine.displayItems();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 			}

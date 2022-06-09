@@ -4,9 +4,7 @@ import com.techelevator.view.Menu;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class TheVendingMachine extends VendingMachineCLI {
     //Instance Variables
@@ -18,33 +16,50 @@ public class TheVendingMachine extends VendingMachineCLI {
 
     Scanner menuList = new Scanner(System.in);
 
-    public TheVendingMachine(Menu menu) {
+    public TheVendingMachine(Menu menu) throws FileNotFoundException {
         super(menu);
+
     }
+//    public static Map getItemList() throws FileNotFoundException {
+//        Map<String, String> itemList = new HashMap<>();
+//        File csvFile = new File("vendingmachine.csv");
 
+//        try (Scanner fileInput = new Scanner(csvFile)) {
+//            int lineCount = 0;
+//            while (fileInput.hasNextLine()) {
+//                String itemInfo = fileInput.nextLine();
+//                itemList.put(itemInfo, "");
+//                lineCount++;
+//
+//            }
+//
+//        } catch (FileNotFoundException exception) {
+//            System.out.println("File not found");
+//        }
+//        return itemList;
+    public static void displayItems() {
 
-    public static Map getItemList() throws FileNotFoundException {
-        Map<String, String> itemList = new HashMap<>();
+        ArrayList itemList2 = new ArrayList();
         File csvFile = new File("vendingmachine.csv");
 
         try (Scanner fileInput = new Scanner(csvFile)) {
             int lineCount = 0;
             while (fileInput.hasNextLine()) {
                 String itemInfo = fileInput.nextLine();
-                itemList.put(itemInfo, "");
+
+                String[] moreInfo = new String[4];
+                moreInfo = itemInfo.split("\\|");
+
+                itemList2.add(itemInfo);
                 lineCount++;
 
+                System.out.println(Arrays.toString(moreInfo));
             }
 
         } catch (FileNotFoundException exception) {
             System.out.println("File not found");
         }
-        return itemList;
+
     }
+
 }
-
-
-
-
-
-
