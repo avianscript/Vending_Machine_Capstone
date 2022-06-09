@@ -9,111 +9,48 @@ import java.util.*;
 
 public class TheVendingMachine extends VendingMachineCLI {
 
-      static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
+    TheVendingMachine vendingMachine;
 
     //Instance Variables
-    private Map<String, String> allItems;
     public static int balance = 0;
-    
+    public ArrayList products = new ArrayList();
+    public int change;
 
-
+    //Constructor
     public TheVendingMachine(Menu menu, int balance) throws FileNotFoundException {
         super(menu);
         this.balance = balance;
-
+        this.products = products;
     }
 
-    public int getBalance() {
+    //getters
+    public int getBalance(){
         return balance;
     }
 
-//    Scanner scanner = new Scanner(System.in);
+    public ArrayList getProducts() {
+        return products;
+    }
 
-    public static void displayItems() {
-
-        ArrayList itemList2 = new ArrayList();
-        File csvFile = new File("vendingmachine.csv");
-
-        try (Scanner fileInput = new Scanner(csvFile)) {
-            int lineCount = 0;
-            while (fileInput.hasNextLine()) {
-                String itemInfo = fileInput.nextLine();
-
-                String[] moreInfo = new String[4];
-                moreInfo = itemInfo.split("\\|");
-
-                itemList2.add(itemInfo);
-                lineCount++;
-
-
-                System.out.println(Arrays.toString(moreInfo));
-                System.out.println(moreInfo[1]);
-            }
-
-        } catch (FileNotFoundException exception) {
-            System.out.println("File not found");
-        }
-
+    public int getChange() {
+        return change;
     }
 
 
-//    Scanner scanner = new Scanner(System.in);
-
-    public static void displayPurchaseMenu() {
+    //setters
 
 
-        System.out.println("Current Balance: " + balance);
-        System.out.println("(1) Feed Money");
-        System.out.println("(2) Select Product");
-        System.out.println("(3) Finish Transaction");
-        System.out.print("Please Choose An Option: ");
-        String selection = scanner.nextLine();
-        if (selection.equals("1")) {
-            System.out.print("Please insert money: ");
-        String fedMoney = scanner.nextLine();
-            balance += Integer.parseInt(fedMoney);
-            System.out.println(balance);
-        } else if (selection.equals("2")) {
-            displayItems();
-            System.out.println("Please choose a product: ");
-            String productSelection = scanner.nextLine();
-            System.out.println("Here's your product");
-        } else if (selection.equals("3")) {
-            // give change
-            // reset balance
-            System.out.println("Thank you!");
-//            System.exit(0);
-
-        }
-
-//        String userInput = scanner.nextLine();
-//        if (userInput.equals(1)) {
-////
-//        }
-//
-//        return balance;
-//    }
-//    balance += Integer.parseInt(userInput);
-//    String userInput = scanner.nextLine();
 
 
-//      private static int feedMoney() {
 
 
-//    Scanner scanner = new Scanner(System.in);
+//methods
 
-
-//        int balance = 0;
-//
-//
-////        System.out.println("please Insert Money");
-//        String userInput = scanner.nextLine();
-//        balance += Integer.parseInt(userInput);
-//        return balance;
     }
 
 
 
 
- }
+

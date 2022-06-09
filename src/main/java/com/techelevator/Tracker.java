@@ -10,28 +10,22 @@ import java.util.Scanner;
 
 public class Tracker extends TheVendingMachine {
 
+    //instance variables
+
+
     public Tracker(Menu menu, int balance) throws FileNotFoundException {
         super(menu, balance);
+
     }
 
-    public String[] getArray()  {
-        ArrayList itemList2 = new ArrayList();
-        File csvFile = new File("vendingmachine.csv");
 
-        try (Scanner fileInput = new Scanner(csvFile)) {
-            int lineCount = 0;
-            while (fileInput.hasNextLine()) {
-                String itemInfo = fileInput.nextLine();
+    public static int getPrice(String userChoice){
 
-                String[] moreInfo = new String[4];
-                moreInfo = itemInfo.split("\\|");
-
-                itemList2.add(itemInfo);
-                lineCount++;
-                System.out.println(moreInfo[2]);
-            }
+        if(moreInfo[0].contains(userChoice)){
+            System.out.println(moreInfo[2]);
         }
-        return moreInfo;
+        return 0;
     }
+
 }
 
