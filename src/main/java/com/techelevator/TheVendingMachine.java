@@ -14,6 +14,8 @@ public class TheVendingMachine {
 
     TheVendingMachine vendingMachine;
 
+
+//    Product product = new Product();
     //Instance Variables
 
     private String location;
@@ -24,6 +26,7 @@ public class TheVendingMachine {
     private int quantity = 5;
     private List inventoryList = new ArrayList();
     private List singleItem = new ArrayList();
+    private ArrayList<String []> products = new ArrayList<>() {};
     //amount of change -> dispense change
     //String selection -> dispense selection
     //communicate change to quantity
@@ -52,6 +55,8 @@ public class TheVendingMachine {
 
     public TheVendingMachine() {
         loadData();
+//        getProducts();
+        singleData();
     }
 
     //getters
@@ -183,6 +188,21 @@ public class TheVendingMachine {
 //        }
 //
 //    }
+
+//    ArrayList<String []> products = new ArrayList<>() {};
+
+    public void getProducts() {
+
+
+
+        products.add(new String[]{"A1","Potato Crisps", "305", "Chip", "Crunch Crunch, Yum!",});
+        products.add(new String[]{"A2","Stackers", "145", "Chip", "Crunch Crunch, Yum!"});
+        products.add(new String[]{"A3","Grain Waves", "275", "Chip","Crunch Crunch, Yum!"});
+        products.add(new String[]{"A4","Cloud Popcorn", "365", "Chip","Crunch Crunch, Yum!"});
+
+
+        System.out.println(products);
+    }
 
     public static void displayItems() {
 

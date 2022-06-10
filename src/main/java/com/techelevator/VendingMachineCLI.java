@@ -29,19 +29,21 @@ private TheVendingMachine aVendingMachine;
 
 //		Chip a1 = new Chip("A1","Potato Crisps", 305, "Chip", "Crunch Crunch, Yum!",5);
 
-		TheVendingMachine theVendingMachine = new TheVendingMachine();
+//		TheVendingMachine theVendingMachine = new TheVendingMachine();
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
 //				TheVendingMachine.displayItems();
+
 //				System.out.println(Candy.);
-<<<<<<< HEAD
-				System.out.println(theVendingMachine.loadData());
-=======
-				System.out.println(theVendingMachine.getSingleItem());
->>>>>>> bc73788a95c134223793da86bf1aa7ef5d320c59
+//				theVendingMachine.getProducts();
+//				System.out.println(theVendingMachine.getProducts());
+//				System.out.println(theVendingMachine.loadData());
+
+//				System.out.println(theVendingMachine.getSingleItem());
+
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 
