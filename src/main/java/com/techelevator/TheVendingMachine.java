@@ -76,7 +76,7 @@ public class TheVendingMachine {
                 String itemInfo = fileInput.nextLine();
                  infoRedux = itemInfo.split("\n");
 
-<<<<<<< HEAD
+
 //                String[] moreInfo = new String[4];
 //                moreInfo = itemInfo.split("\\|");
 //                inventoryList.add(itemInfo);
@@ -85,7 +85,7 @@ public class TheVendingMachine {
 //            System.out.println(Arrays.toString(moreInfo));
 //                System.out.println(infoRedux);
 //                System.out.println(moreInfo[1]);
-=======
+
                 String[] moreInfo = new String[1];
                 moreInfo = itemInfo.split("\\|");
                 inventoryList.add(itemInfo);
@@ -93,7 +93,7 @@ public class TheVendingMachine {
           System.out.println(Arrays.toString(moreInfo));
          //       System.out.println(inventoryList);
  //              System.out.println(moreInfo[1]);
->>>>>>> bc73788a95c134223793da86bf1aa7ef5d320c59
+
 //            singleItem = moreInfo;
             }
         } catch (FileNotFoundException exception) {
