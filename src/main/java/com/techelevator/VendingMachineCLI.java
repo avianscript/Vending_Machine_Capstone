@@ -16,10 +16,11 @@ public class VendingMachineCLI {
 
 	private Menu menu;
 
+private TheVendingMachine aVendingMachine;
 
-
-	public VendingMachineCLI(Menu menu) {
+	public VendingMachineCLI(Menu menu, TheVendingMachine aVendingMachine) {
 		this.menu = menu;
+		this.aVendingMachine = aVendingMachine;
 	}
 
 
@@ -28,7 +29,7 @@ public class VendingMachineCLI {
 
 //		Chip a1 = new Chip("A1","Potato Crisps", 305, "Chip", "Crunch Crunch, Yum!",5);
 
-
+		TheVendingMachine theVendingMachine = new TheVendingMachine();
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
@@ -36,6 +37,7 @@ public class VendingMachineCLI {
 				// display vending machine items
 //				TheVendingMachine.displayItems();
 //				System.out.println(Candy.);
+				System.out.println(theVendingMachine.getInventoryList());
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 
@@ -51,7 +53,8 @@ public class VendingMachineCLI {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		Menu menu = new Menu(System.in, System.out);
-		VendingMachineCLI cli = new VendingMachineCLI(menu);
+		TheVendingMachine theVendingMachine = new TheVendingMachine();
+		VendingMachineCLI cli = new VendingMachineCLI(menu, theVendingMachine);
 		cli.run();
 
 

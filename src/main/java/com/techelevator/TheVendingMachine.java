@@ -22,7 +22,7 @@ public class TheVendingMachine {
     private String type;
     private String sound;
     private int quantity = 5;
-    private String [] inventoryList;
+    private List inventoryList = new ArrayList();
     //amount of change -> dispense change
     //String selection -> dispense selection
     //communicate change to quantity
@@ -31,41 +31,49 @@ public class TheVendingMachine {
 
     //Constructor
 
-    public TheVendingMachine(String location,String name, int price, String type, String sound, int quantity, String inventoryList) {
-        this.location = location;
-        this.name = name;
-        this.price =price;
-        this.type = type;
-        this.sound = sound;
-        this.quantity = quantity;
+
+
+
+//    public TheVendingMachine(String location,String name, int price, String type, String sound, int quantity, String inventoryList) {
+//        this.location = location;
+//        this.name = name;
+//        this.price =price;
+//        this.type = type;
+//        this.sound = sound;
+//        this.quantity = quantity;
 //        this.inventoryList = inventoryList;
 //
 
-    }
+
 
     public TheVendingMachine(Menu menu) {
     }
 
     public TheVendingMachine() {
-
+loadData();
     }
 
     //getters
 
-    public String getItemList2() {
-        File csvFile = new File("vendingmachine.csv");
-        String itemInfo = "";
-        try (Scanner fileInput = new Scanner(csvFile)) {
-            int lineCount = 0;
-            while (fileInput.hasNextLine()) {
-                itemInfo = fileInput.nextLine();
+    public List getInventoryList() {
+        return inventoryList;
+}
 
-            }
-        } catch (FileNotFoundException exception) {
-            System.out.println("File not found");
+public void loadData () {
+    File csvFile = new File("vendingmachine.csv");
+
+    try (Scanner fileInput = new Scanner(csvFile)) {
+        while (fileInput.hasNextLine()) {
+            String itemInfo = fileInput.nextLine();
+
+            String[] moreInfo = new String[4];
+            moreInfo = itemInfo.split("\\|");
+            inventoryList.add(itemInfo);
         }
-        return itemInfo;
+    } catch (FileNotFoundException exception) {
+        System.out.println("File not found");
     }
+}
 
     public String getLocation() {
         return location;
@@ -99,31 +107,31 @@ public class TheVendingMachine {
 
     //methods
 
-    public static void arrListStored(){
-        ArrayList itemList2 = new ArrayList();
-        File csvFile = new File("vendingmachine.csv");
-
-        try (Scanner fileInput = new Scanner(csvFile)) {
-            int lineCount = 0;
-            while (fileInput.hasNextLine()) {
-                String itemInfo = fileInput.nextLine();
-
-                String[] moreInfo = new String[4];
-                moreInfo = itemInfo.split("\\|");
-                String location = moreInfo[0];
-                itemList2.add(itemInfo);
-                lineCount++;
-
-
-                System.out.println(Arrays.toString(moreInfo));
-                System.out.println(moreInfo[1]);
-            }
-
-        } catch (FileNotFoundException exception) {
-            System.out.println("File not found");
-        }
-
-    }
+//    public static void arrListStored(){
+//        ArrayList itemList2 = new ArrayList();
+//        File csvFile = new File("vendingmachine.csv");
+//
+//        try (Scanner fileInput = new Scanner(csvFile)) {
+//            int lineCount = 0;
+//            while (fileInput.hasNextLine()) {
+//                String itemInfo = fileInput.nextLine();
+//
+//                String[] moreInfo = new String[4];
+//                moreInfo = itemInfo.split("\\|");
+//                String location = moreInfo[0];
+//                itemList2.add(itemInfo);
+//                lineCount++;
+//
+//
+//                System.out.println(Arrays.toString(moreInfo));
+//                System.out.println(moreInfo[1]);
+//            }
+//
+//        } catch (FileNotFoundException exception) {
+//            System.out.println("File not found");
+//        }
+//
+//    }
 
     public static void displayItems() {
 
