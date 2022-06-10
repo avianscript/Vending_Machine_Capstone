@@ -37,7 +37,11 @@ private TheVendingMachine aVendingMachine;
 				// display vending machine items
 //				TheVendingMachine.displayItems();
 //				System.out.println(Candy.);
+<<<<<<< HEAD
 				System.out.println(theVendingMachine.loadData());
+=======
+				System.out.println(theVendingMachine.getSingleItem());
+>>>>>>> bc73788a95c134223793da86bf1aa7ef5d320c59
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 
