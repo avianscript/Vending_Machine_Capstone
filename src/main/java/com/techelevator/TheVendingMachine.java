@@ -23,7 +23,7 @@ public class TheVendingMachine {
     private String sound;
     private int quantity = 5;
     private List inventoryList = new ArrayList();
-    private String[] singleItem = new String[] {};
+    private List singleItem = new ArrayList();
     //amount of change -> dispense change
     //String selection -> dispense selection
     //communicate change to quantity
@@ -60,11 +60,11 @@ public class TheVendingMachine {
         return inventoryList;
 }
 
-    public String[] getSingleItem() {
+    public List getSingleItem() {
         return singleItem;
     }
 
-    public void setSingleItem(String[] singleItem) {
+    public void setSingleItem(List singleItem) {
         this.singleItem = singleItem;
     }
 
@@ -75,12 +75,13 @@ public class TheVendingMachine {
             while (fileInput.hasNextLine()) {
                 String itemInfo = fileInput.nextLine();
 
-                String[] moreInfo = new String[4];
+                String[] moreInfo = new String[1];
                 moreInfo = itemInfo.split("\\|");
                 inventoryList.add(itemInfo);
 
-            System.out.println(Arrays.toString(moreInfo));
-//                System.out.println(moreInfo[1]);
+          System.out.println(Arrays.toString(moreInfo));
+         //       System.out.println(inventoryList);
+ //              System.out.println(moreInfo[1]);
 //            singleItem = moreInfo;
             }
         } catch (FileNotFoundException exception) {
@@ -88,23 +89,24 @@ public class TheVendingMachine {
         }
     }
     public void singleData () {
-            File csvdFile = new File("vendingmachine.csv");
+        File csvFile = new File("vendingmachine.csv");
 
-            try (Scanner fileInput = new Scanner(csvdFile)) {
-                while (fileInput.hasNextLine()) {
-                    String itemInfo = fileInput.nextLine();
+        try (Scanner fileInput = new Scanner(csvFile)) {
+            while (fileInput.hasNextLine()) {
+                String itemInfo = fileInput.nextLine();
 
-                    String[] moreInfo = new String[4];
-                    moreInfo = itemInfo.split("\\|");
-                    inventoryList.add(itemInfo);
-
-//            System.out.println(Arrays.toString(moreInfo));
-                    System.out.println(moreInfo[3]);
+                String[] moreInfo = new String[1];
+                moreInfo = itemInfo.split("\\|");
+                singleItem.add(itemInfo);
+                String moreInfoString = moreInfo[2];
+        //        System.out.println(Arrays.toString(moreInfo));
+                      System.out.println(moreInfoString);
+                //              System.out.println(moreInfo[1]);
 //            singleItem = moreInfo;
-                }
-            } catch (FileNotFoundException exception) {
-                System.out.println("File not found");
             }
+        } catch (FileNotFoundException exception) {
+            System.out.println("File not found");
+        }
 
 
         }
