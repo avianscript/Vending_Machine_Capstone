@@ -5,6 +5,7 @@ import com.techelevator.view.Menu;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.nio.channels.ScatteringByteChannel;
 import java.util.*;
 
 public class TheVendingMachine {
@@ -21,18 +22,24 @@ public class TheVendingMachine {
     private String type;
     private String sound;
     private int quantity = 5;
+    private String [] inventoryList;
+    //amount of change -> dispense change
+    //String selection -> dispense selection
+    //communicate change to quantity
+    //money -> feed money
 
 
     //Constructor
 
-    public TheVendingMachine(String location,String name, int price, String type, String sound, int quantity) {
+    public TheVendingMachine(String location,String name, int price, String type, String sound, int quantity, String inventoryList) {
         this.location = location;
         this.name = name;
         this.price =price;
         this.type = type;
         this.sound = sound;
         this.quantity = quantity;
-
+//        this.inventoryList = inventoryList;
+//
 
     }
 
@@ -44,6 +51,21 @@ public class TheVendingMachine {
     }
 
     //getters
+
+    public String getItemList2() {
+        File csvFile = new File("vendingmachine.csv");
+        String itemInfo = "";
+        try (Scanner fileInput = new Scanner(csvFile)) {
+            int lineCount = 0;
+            while (fileInput.hasNextLine()) {
+                itemInfo = fileInput.nextLine();
+
+            }
+        } catch (FileNotFoundException exception) {
+            System.out.println("File not found");
+        }
+        return itemInfo;
+    }
 
     public String getLocation() {
         return location;
@@ -77,9 +99,37 @@ public class TheVendingMachine {
 
     //methods
 
-    public void test() {
-        System.out.println();
-        getPrice();
+    public static void arrListStored(){
+        ArrayList itemList2 = new ArrayList();
+        File csvFile = new File("vendingmachine.csv");
+
+        try (Scanner fileInput = new Scanner(csvFile)) {
+            int lineCount = 0;
+            while (fileInput.hasNextLine()) {
+                String itemInfo = fileInput.nextLine();
+
+                String[] moreInfo = new String[4];
+                moreInfo = itemInfo.split("\\|");
+                String location = moreInfo[0];
+                itemList2.add(itemInfo);
+                lineCount++;
+
+
+                System.out.println(Arrays.toString(moreInfo));
+                System.out.println(moreInfo[1]);
+            }
+
+        } catch (FileNotFoundException exception) {
+            System.out.println("File not found");
+        }
+
+    }
+
+    public static void displayItems() {
+
+        //pull from ArrayList
+
+
     }
 
     }
