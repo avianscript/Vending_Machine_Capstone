@@ -20,12 +20,12 @@ public class CopyVM {
 
 
 
-    public TheVendingMachine(Menu menu, int balance) throws FileNotFoundException {
-        super(menu);
-        this.balance = balance;
-        //Collection
-
-    }
+//    public TheVendingMachine(Menu menu, int balance) throws FileNotFoundException {
+//        super(menu);
+//        this.balance = balance;
+//        //Collection
+//
+//    }
 
     public int getBalance() {
         return balance;

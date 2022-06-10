@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class VendingMachineCLI {
 
+
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE};
@@ -16,22 +17,32 @@ public class VendingMachineCLI {
 	private Menu menu;
 
 
+
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
 
+
+
 	public void run() throws FileNotFoundException{
+
+//		Chip a1 = new Chip("A1","Potato Crisps", 305, "Chip", "Crunch Crunch, Yum!",5);
+
+
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
-				//TheVendingMachine.displayItems();
+//				TheVendingMachine.displayItems();
+
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
+
 				while (true) {
 					//TheVendingMachine.displayPurchaseMenu();
 				}
+
 			}
 		}
 	}
@@ -43,16 +54,29 @@ public class VendingMachineCLI {
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
 
+
 	}
 
-	public String getUserInput(int selection) throws FileNotFoundException {
-		String userInputMainMenu = input.nextLine();
 
 
-			System.out.println("Hello There");
+//		Chip a1 = new Chip("A1","Potato Crisps", 305, "Chip", "Crunch Crunch, Yum!",5);
+//
+//		TheVendingMachine theVendingMachine = new TheVendingMachine();
+//
+//		System.out.println(a1.getPrice());
 
-		return "Somethin else";
-	}
+
+
+//	}
+//
+//	public String getUserInput(int selection) throws FileNotFoundException {
+//		String userInputMainMenu = input.nextLine();
+//
+//
+//			System.out.println("Hello There");
+//
+//		return "Somethin else";
+//	}
 
 
 }
