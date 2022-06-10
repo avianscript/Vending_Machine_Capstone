@@ -1,7 +1,15 @@
 package com.techelevator;
 
-public class Product {
+import java.util.ArrayList;
 
+public class Product {
+    ArrayList<String[]> productList = new ArrayList<>();
+    public ArrayList makeList () {
+
+        productList.add(new String[] {"A1", "Potato Crisps", "305", "Chip"});
+
+                return productList;
+    }
     //Instance Variables
     private String location;
     private String name;

@@ -68,24 +68,28 @@ public class TheVendingMachine {
         this.singleItem = singleItem;
     }
 
-    public void loadData () {
+    public String[] loadData () {
         File csvFile = new File("vendingmachine.csv");
-
+        String [] infoRedux = new String[] {};
         try (Scanner fileInput = new Scanner(csvFile)) {
             while (fileInput.hasNextLine()) {
                 String itemInfo = fileInput.nextLine();
+                 infoRedux = itemInfo.split("\n");
 
-                String[] moreInfo = new String[4];
-                moreInfo = itemInfo.split("\\|");
-                inventoryList.add(itemInfo);
+//                String[] moreInfo = new String[4];
+//                moreInfo = itemInfo.split("\\|");
+//                inventoryList.add(itemInfo);
 
-            System.out.println(Arrays.toString(moreInfo));
+
+//            System.out.println(Arrays.toString(moreInfo));
+//                System.out.println(infoRedux);
 //                System.out.println(moreInfo[1]);
 //            singleItem = moreInfo;
             }
         } catch (FileNotFoundException exception) {
             System.out.println("File not found");
         }
+        return infoRedux;
     }
     public void singleData () {
             File csvdFile = new File("vendingmachine.csv");
