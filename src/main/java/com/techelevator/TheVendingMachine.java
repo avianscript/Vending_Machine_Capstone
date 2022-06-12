@@ -4,6 +4,7 @@ import com.techelevator.view.Menu;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.nio.channels.ScatteringByteChannel;
 import java.util.*;
@@ -14,206 +15,133 @@ public class TheVendingMachine {
 
     TheVendingMachine vendingMachine;
 
-
-//    Product product = new Product();
     //Instance Variables
 
-    private String location;
-    private String name;
-    private int price;
-    private String type;
-    private String sound;
-    private int quantity = 5;
-    private List inventoryList = new ArrayList();
-    private List singleItem = new ArrayList();
-    private ArrayList<String []> products = new ArrayList<>() {};
-    //amount of change -> dispense change
-    //String selection -> dispense selection
-    //communicate change to quantity
-    //money -> feed money
-
-
-    //Constructor
-
-
-
-
-//    public TheVendingMachine(String location,String name, int price, String type, String sound, int quantity, String inventoryList) {
-//        this.location = location;
-//        this.name = name;
-//        this.price =price;
-//        this.type = type;
-//        this.sound = sound;
-//        this.quantity = quantity;
-//        this.inventoryList = inventoryList;
-//
-
-
-
-    public TheVendingMachine(Menu menu) {
-    }
+    private static ArrayList inventoryList = new ArrayList();
+    //    private List singleItem = new ArrayList();
+    private static int balance = 500;
+//    private static String userSelection;
 
     public TheVendingMachine() {
         loadData();
 //        getProducts();
-        singleData();
+//        singleData();
     }
 
     //getters
 
-    public List getInventoryList() {
+    public static ArrayList getInventoryList() {
         return inventoryList;
-}
-
-    public List getSingleItem() {
-        return singleItem;
     }
 
-    public void setSingleItem(List singleItem) {
-        this.singleItem = singleItem;
+    public static int getBalance() {
+        return balance;
     }
 
-    public String[] loadData () {
-        File csvFile = new File("vendingmachine.csv");
-        String [] infoRedux = new String[] {};
-        try (Scanner fileInput = new Scanner(csvFile)) {
-            while (fileInput.hasNextLine()) {
-                String itemInfo = fileInput.nextLine();
-                 infoRedux = itemInfo.split("\n");
-
-
-//                String[] moreInfo = new String[4];
-//                moreInfo = itemInfo.split("\\|");
-//                inventoryList.add(itemInfo);
-
-
-//            System.out.println(Arrays.toString(moreInfo));
-//                System.out.println(infoRedux);
-//                System.out.println(moreInfo[1]);
-
-                String[] moreInfo = new String[1];
-                moreInfo = itemInfo.split("\\|");
-                inventoryList.add(itemInfo);
-
-          System.out.println(Arrays.toString(moreInfo));
-         //       System.out.println(inventoryList);
- //              System.out.println(moreInfo[1]);
-
-//            singleItem = moreInfo;
-            }
-        } catch (FileNotFoundException exception) {
-            System.out.println("File not found");
-        }
-        return infoRedux;
-    }
-    public void singleData () {
-        File csvFile = new File("vendingmachine.csv");
-
-        try (Scanner fileInput = new Scanner(csvFile)) {
-            while (fileInput.hasNextLine()) {
-                String itemInfo = fileInput.nextLine();
-
-                String[] moreInfo = new String[1];
-                moreInfo = itemInfo.split("\\|");
-                singleItem.add(itemInfo);
-                String moreInfoString = moreInfo[2];
-        //        System.out.println(Arrays.toString(moreInfo));
-                      System.out.println(moreInfoString);
-                //              System.out.println(moreInfo[1]);
-//            singleItem = moreInfo;
-            }
-        } catch (FileNotFoundException exception) {
-            System.out.println("File not found");
-        }
-
-
-        }
-
-
-
-    public String getLocation() {
-        return location;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getSound() {
-        return sound;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-    //setters
-
-
-
-
-
-
-    //methods
-
-//    public static void arrListStored(){
-//        ArrayList itemList2 = new ArrayList();
-//        File csvFile = new File("vendingmachine.csv");
+//    public List getSingleItem() {
+//        return singleItem;
+//    }
 //
-//        try (Scanner fileInput = new Scanner(csvFile)) {
-//            int lineCount = 0;
-//            while (fileInput.hasNextLine()) {
-//                String itemInfo = fileInput.nextLine();
-//
-//                String[] moreInfo = new String[4];
-//                moreInfo = itemInfo.split("\\|");
-//                String location = moreInfo[0];
-//                itemList2.add(itemInfo);
-//                lineCount++;
-//
-//
-//                System.out.println(Arrays.toString(moreInfo));
-//                System.out.println(moreInfo[1]);
-//            }
-//
-//        } catch (FileNotFoundException exception) {
-//            System.out.println("File not found");
-//        }
-//
+//    public void setSingleItem(List singleItem) {
+//        this.singleItem = singleItem;
 //    }
 
-//    ArrayList<String []> products = new ArrayList<>() {};
 
-    public void getProducts() {
-
-
-
-        products.add(new String[]{"A1","Potato Crisps", "305", "Chip", "Crunch Crunch, Yum!",});
-        products.add(new String[]{"A2","Stackers", "145", "Chip", "Crunch Crunch, Yum!"});
-        products.add(new String[]{"A3","Grain Waves", "275", "Chip","Crunch Crunch, Yum!"});
-        products.add(new String[]{"A4","Cloud Popcorn", "365", "Chip","Crunch Crunch, Yum!"});
-
-
-        System.out.println(products);
+    //loadData method puts the scanned csv into ArrayList format
+    //so that individual items can be isolated into arrays and
+    //then indexed to find the price
+    public ArrayList loadData() {
+        File csvFile = new File("vendingmachine.csv");
+        try (Scanner fileInput = new Scanner(csvFile)) {
+            while (fileInput.hasNextLine()) {
+                String itemInfo = fileInput.nextLine();
+                inventoryList.add(itemInfo);
+            }
+        } catch (FileNotFoundException exception) {
+            System.out.println("File not found");
+        }
+        inventoryList.add("Reject|Reject|0.00|Reject");
+        return inventoryList;
     }
 
-    public static void displayItems() {
+    //givePrice method provides the selection's price in pennies
+    public static int givePrice() {
 
-        //pull from ArrayList
+        int selectionIndex = 0;
+        String userSelection = scanner.nextLine();
 
+        if (userSelection.equals("A1")) {
+            selectionIndex = 0;
+        } else if (userSelection.equals("A2")) {
+            selectionIndex = 1;
+        } else if (userSelection.equals("A3")) {
+            selectionIndex = 2;
+        } else if (userSelection.equals("A4")) {
+            selectionIndex = 3;
+        } else if (userSelection.equals("B1")) {
+            selectionIndex = 4;
+        } else if (userSelection.equals("B2")) {
+            selectionIndex = 5;
+        } else if (userSelection.equals("B3")) {
+            selectionIndex = 6;
+        } else if (userSelection.equals("B4")) {
+            selectionIndex = 7;
+        } else if (userSelection.equals("C1")) {
+            selectionIndex = 8;
+        } else if (userSelection.equals("C2")) {
+            selectionIndex = 9;
+        } else if (userSelection.equals("C3")) {
+            selectionIndex = 10;
+        } else if (userSelection.equals("C4")) {
+            selectionIndex = 11;
+        } else if (userSelection.equals("D1")) {
+            selectionIndex = 12;
+        } else if (userSelection.equals("D2")) {
+            selectionIndex = 13;
+        } else if (userSelection.equals("D3")) {
+            selectionIndex = 14;
+        } else if (userSelection.equals("D4")) {
+            selectionIndex = 15;
+        } else {
+            System.out.println("Sorry, not a valid selection.");
+            selectionIndex = 16;
+            displayPurchaseMenu();
+
+        }
+        //get individual item by index from the inventory ArrayList
+        String invString = (String) inventoryList.get(selectionIndex);
+        //split individual item into an array of each attribute
+        String[] invArray = invString.split("[|]");
+        //Store price into a Double
+        Double invArrayInt = Double.parseDouble(invArray[2]);
+        //convert and return price as an int in pennies
+        return (int) (invArrayInt * 100);
 
     }
 
+    public static void updateBalance () {
+        balance -= givePrice();
+        System.out.println("Your balance is now " + balance);
     }
 
+    //displayMenu method prints out the menu from the csv file
+    public static void displayMenu() {
+        File csvFile = new File("vendingmachine.csv");
+        try (Scanner fileInput = new Scanner(csvFile)) {
+            while (fileInput.hasNextLine()) {
+                String itemInfo = fileInput.nextLine();
+                System.out.println(itemInfo);
+            }
+        } catch (FileNotFoundException exception) {
+            System.out.println("File not found");
+        }
+    }
 
+    public static void displayPurchaseMenu() {
 
+        System.out.println("Your current balance is " + balance);
+        System.out.println("(1) Feed money" + "\n" + "(2) Make Selection" + "\n" + "(3) Finish transaction");
+        System.out.print("Please choose an option >>> ");
 
-
+    }
+}

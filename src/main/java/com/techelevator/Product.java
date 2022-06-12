@@ -14,10 +14,6 @@ public class Product extends TheVendingMachine {
 
     //constructor
 
-//    public Product() {
-//
-//    }
-
     public Product(String location,String name, int price, String type, String sound) {
         this.location = location;
         this.name = name;
@@ -28,20 +24,6 @@ public class Product extends TheVendingMachine {
 
     }
 
-
-
-//    ArrayList<String []> products = new ArrayList<>() {};
-//
-//    public  ArrayList getProducts() {
-//        products.add(new String[]{"A1","Potato Crisps", "305", "Chip", "Crunch Crunch, Yum!",});
-//        products.add(new String[]{"A2","Stackers", "145", "Chip", "Crunch Crunch, Yum!"});
-//        products.add(new String[]{"A3","Grain Waves", "275", "Chip","Crunch Crunch, Yum!"});
-//        products.add(new String[]{"A4","Cloud Popcorn", "365", "Chip","Crunch Crunch, Yum!"});
-//
-//
-//
-//        return products;
-//    }
     //getters
 
     public String getLocation() {

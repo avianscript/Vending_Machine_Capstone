@@ -1,0 +1,35 @@
+Team 4 Reflections and Next Steps
+
+Reflections/Learning:
+1. In the course of our project, we had put together a plan that we did not properly review and implement. In the future,
+we felt that we should do smaller sections of code and to actually follow through with what we said we would do. Even
+with smaller bits of code, we would have greater opportunity to check back against the plan. Additionally, we would need
+to come up with a more specific plan with greater detail regarding the actual methods and their code. We would have
+also benefited from utilizing visual aids like diagrams.
+
+2. We identified areas in our understanding of Java that could use further review and practice on. One major area was
+how a Java project can fit together as a whole; how classes interact with one another.
+
+3. We felt that we communicated very well and worked as a team really well together, even if we did not finish. We were
+as resourceful as possible, implementing different potential solutions that we often had to research and brainstorm to
+find.
+
+4. There is a lot of value in keeping the code we write clean/tidy. Making helpful comments for future coding is also
+essential.
+
+Next Steps:
+If we were to continue working on this specific capstone project, we would look to do the following things:
+
+1. Now that we've isolated the prices of each individual item, we would proceed to make code to update the balance
+available to the customer for further purchases. Additionally, we would continue completing the rest of the code for
+the transaction (feeding money into machine, dispensing product).
+
+2. We would integrate the classes corresponding with the products, namely the product types.
+
+3. We would need to finish coding for all menu options, as well as errant selections to further guide the user through
+the machine.
+
+4. Creating the Log. Utilizing a Printwriter within a method, we would automatically write to the log file with the
+correct details as the user inputs their product selection, when they feed money, as well as finalizing the transaction.
+
+5. Unit tests. Develop alongside of our code.
